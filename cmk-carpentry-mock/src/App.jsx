@@ -1,122 +1,81 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const services = [
+  { title: "Decking & Pergolas", text: "Custom Merbau, hardwood and composite decks, stairs & pergolas - built on frames that are solid, level and made to last outdoors." },
+  { title: "Lock-up & fix", text: "Doors, locks, architraves, skirting, trims and feature details - the finishing stage where everything has to line up." },
+  { title: "Renovations & Extenstions", text: "Internal reconfigurations, extensions, cladding, eaves and gables - managed from demolition through to lock-up and fix." },
+];
+
+const projects = ["Project One", "Project Two", "Project Three", "Project Four", "Project Five", "Project Six"];
+
+export default function App() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: ""});
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Mock inquiry:", form); //no backend yet
+    setSent(true);
+    setForm({name: "", email: "", phone: "", message: ""});
+  };
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+    <header className="nav">
+      <span className="logo">CMK Carpentry</span>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    
+    <section className="hero">
+      <h1>Quality Carpentry, Built to Last</h1>
+      <p>Custome timber work for homes and businesses.</p>
+      <a className="btn" href="#contact">Get a Free Quote</a>
+    </section>
+
+    <section id="services" className="section">
+      <h2>Services</h2>
+      <div className="grid">
+        {services.map((s) => (
+          <div className="card" key={s.title}>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="work" className="section alt">
+      <h2>Our Work</h2>
+      <div className="grid gallery">
+        {projects.map((p) => (
+          <div className="photo" key={p}>{p}</div>
+        ))}
+      </div>
+    </section>
+
+    <section id="contact" className="section">
+        <h2>Request a Quote</h2>
+        {sent ? (
+          <p className="success">Thanks! We'll be in touch shortly.</p>
+        ) : (
+          <form onSubmit={handleSubmit} className="form">
+            <input name="name" placeholder="Your name" value={form.name} onChange={handleChange} required />
+            <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required />
+            <input name="phone" placeholder="Phone (optional)" value={form.phone} onChange={handleChange} />
+            <textarea name="message" rows="5" placeholder="Tell us about your project" value={form.message} onChange={handleChange} required />
+            <button className="btn" type="submit">Send Inquiry</button>
+          </form>
+        )}
       </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <footer className="footer">© {new Date().getFullYear()} CMK Carpentry · Mock design for review</footer>
     </>
-  )
+  );
 }
-
-export default App
