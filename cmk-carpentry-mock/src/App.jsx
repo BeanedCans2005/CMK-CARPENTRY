@@ -3,8 +3,8 @@ import "./App.css";
 
 const services = [
   { title: "Decking & Pergolas", text: "Custom Merbau, hardwood and composite decks, stairs & pergolas - built on frames that are solid, level and made to last outdoors." },
-  { title: "Lock-up & fix", text: "Doors, locks, architraves, skirting, trims and feature details - the finishing stage where everything has to line up." },
-  { title: "Renovations & Extenstions", text: "Internal reconfigurations, extensions, cladding, eaves and gables - managed from demolition through to lock-up and fix." },
+  { title: "Lock-up & Fix", text: "Doors, locks, architraves, skirting, trims and feature details - the finishing stage where everything has to line up." },
+  { title: "Renovations & Extensions", text: "Internal reconfigurations, extensions, cladding, eaves and gables - managed from demolition through to lock-up and fix." },
 ];
 
 const projects = ["Project One", "Project Two", "Project Three", "Project Four", "Project Five", "Project Six"];
@@ -35,7 +35,7 @@ export default function App() {
     
     <section className="hero">
       <h1>Quality Carpentry, Built to Last</h1>
-      <p>Custome timber work for homes and businesses.</p>
+      <p>Custom timber work for homes and businesses.</p>
       <a className="btn" href="#contact">Get a Free Quote</a>
     </section>
 
