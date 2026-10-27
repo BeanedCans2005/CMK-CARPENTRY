@@ -1,9 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 
-const [menuOpen, setMenuOpen] = useState(false);
-const closeMenu = () => setMenuOpen(false);
-
 const services = [
   { title: "Decking & Pergolas", text: "Custom Merbau, hardwood and composite decks, stairs & pergolas - built on frames that are solid, level and made to last outdoors." },
   { title: "Lock-up & Fix", text: "Doors, locks, architraves, skirting, trims and feature details - the finishing stage where everything has to line up." },
@@ -15,6 +12,8 @@ const projects = ["Project One", "Project Two", "Project Three", "Project Four",
 export default function App() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: ""});
   const [sent, setSent] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
