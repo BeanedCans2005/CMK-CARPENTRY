@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 
+const [menuOpen, setMenuOpen] = useState(false);
+const closeMenu = () => setMenuOpen(false);
+
 const services = [
   { title: "Decking & Pergolas", text: "Custom Merbau, hardwood and composite decks, stairs & pergolas - built on frames that are solid, level and made to last outdoors." },
   { title: "Lock-up & Fix", text: "Doors, locks, architraves, skirting, trims and feature details - the finishing stage where everything has to line up." },
