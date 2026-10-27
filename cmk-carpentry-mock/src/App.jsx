@@ -28,11 +28,20 @@ export default function App() {
   return (
     <>
     <header className="nav">
-      <span className="logo">CMK Carpentry</span>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#work">Our Work</a>
-        <a href="#contact">Contact</a>
+      <span classnAME="logo">C.M.K Carpentry</span>
+      <button
+      className="menu-toggle"
+      aria-label="Toggle menu"
+      aria-expaned={menuOpen}
+      aria-controls="primary-nav"
+      onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? "✕": "☰"}
+      </button>
+      <nav id="primary-nav" className={menuOpen ? "open" : ""}>
+        <a href="#services" onClick={closeMenu}>Services</a>
+        <a href="#work" onClick={closeMenu}>Our Work</a>
+        <a href="#contact" onClick={closeMenu}>Contact</a>
       </nav>
     </header>
     
