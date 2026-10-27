@@ -27,11 +27,11 @@ export default function App() {
   return (
     <>
     <header className="nav">
-      <span classnAME="logo">C.M.K Carpentry</span>
+      <span className="logo">C.M.K Carpentry</span>
       <button
       className="menu-toggle"
       aria-label="Toggle menu"
-      aria-expaned={menuOpen}
+      aria-expanded={menuOpen}
       aria-controls="primary-nav"
       onClick={() => setMenuOpen(!menuOpen)}
       >
