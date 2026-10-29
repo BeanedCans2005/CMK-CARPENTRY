@@ -10,7 +10,7 @@ export const projects = [
         location: "Suburb, VIC",
         workCompleted: ["Work type"],
         clientName: "",
-        photo: "",
+        photo: "/projects/TESTPHOTO.jpeg",
     },
 
     {
