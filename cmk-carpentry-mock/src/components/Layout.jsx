@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import SocialLinks from "./SocialLinks";
 
 export default function Layout() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { pathname, has, key } = useLocation();
+    const { pathname, hash, key } = useLocation();
     const closeMenu = () => setMenuOpen(false);
 
     // After navigating: scroll to the #section if there is one, otherwise to the top.
@@ -29,12 +29,13 @@ export default function Layout() {
             >
                 {menuOpen ? "✕" : "☰"}
             </button>
-            <nav id="primary-nav" className={menuOpen ? "open" : ""}>
+                <nav id="primary-nav" className={menuOpen ? "open" : ""}>
+                <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
                 <Link to="/#services" onClick={closeMenu}>Services</Link>
-                <Link to="/projects" onClick={closeMenu}>Projects</Link>
-                <Link to="#/contact" onClick={closeMenu}>Contact</Link>
+                <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
+                <Link to="/#contact" onClick={closeMenu}>Contact</Link>
                 <SocialLinks />
-            </nav>
+                </nav>
         </header>
         
         <main>
