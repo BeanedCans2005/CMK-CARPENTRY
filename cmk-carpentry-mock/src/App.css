@@ -6,11 +6,18 @@
   --sand: #e8e0d3;
   --text-soft: #414c46;
   --on-accent: #0e110f;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+  --font-heading: "Archivo Variable", "Inter Variable", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: system-ui, sans-serif; color: var(--dark); background: var(--cream); }
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--cream);
+}
 
 /* Navigation */
 .nav {
@@ -165,3 +172,13 @@ a.project:hover { border-color: var(--accent); }
 .project-text { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; }
 
 .nav nav a.active { color: var(--accent); }
+
+h1, h2, h3, .logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Buttons don't inherit fonts by default */
+button { font-family: inherit; }
