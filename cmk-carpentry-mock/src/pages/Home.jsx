@@ -10,7 +10,8 @@ export default function Home() {
         document.title = "C.M.K Carpentry Services | Decking, Lock-up & fix, Renovations";
     }, []);
 
-    const featured = projects.slice(0, 3); // first three projects
+    const flagged = projects.filter((p) => p.featured);
+    const featured = (flagged.length > 0 ? flagged : projects).slice(0, 3);
 
     return (
         <>
@@ -33,7 +34,7 @@ export default function Home() {
             </section>
 
             <section id="work" className="section alt">
-                <h2>Our Work</h2>
+                <h2>Featured Work</h2>
                 {featured.length === 0 ? (
                     <p className="empty">Projects coming soon.</p>
                 ) : (
@@ -42,7 +43,7 @@ export default function Home() {
                     </div>
                 )}
                 <div className="center">
-                    <Link className="btn" to="/projects">View all projects</Link>
+                    <Link className="btn" to="/projects">View all {projects.length} projects</Link>
                 </div>
             </section>
 

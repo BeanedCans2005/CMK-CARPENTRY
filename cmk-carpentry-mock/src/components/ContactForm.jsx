@@ -9,7 +9,7 @@ const emptyForm = { name: "", email: "", phone: "", message: "" };
 function validate(f) {
     const errors = {};
     if (!f.name.trim()) errors.name = "Please enter your name.";
-    if (!/^\S+@\S+\.\S+$/.test(f/email.trim())) errors.email = "Please enter a valid email address.";
+    if (!/^\S+@\S+\.\S+$/.test(f.email.trim())) errors.email = "Please enter a valid email address.";
     if (f.phone.trim() && !/^[0-9+()\s-]{8,}$/.test(f.phone.trim())) errors.phone = "Please enter a valid phone number.";
     if (f.message.trim().length < 10 ) errors.message = "Please tell us a little more about your project.";
     return errors;
