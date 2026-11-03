@@ -2,52 +2,56 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { services } from "../services";
 import { projects } from "../projects";
+import Hero from "../components/Hero";
 import ProjectCard from "../components/ProjectCard";
 import ContactForm from "../components/ContactForm";
 
 export default function Home() {
-    useEffect(() => {
-        document.title = "C.M.K Carpentry Services | Decking, Lock-up & fix, Renovations";
-    }, []);
+  useEffect(() => {
+    document.title = "C.M.K Carpentry Services | Decking, Lock-up & Fix, Renovations";
+  }, []);
 
-    const flagged = projects.filter((p) => p.featured);
-    const featured = (flagged.length > 0 ? flagged : projects).slice(0, 3);
+  const flagged = projects.filter((p) => p.featured);
+  const featured = (flagged.length > 0 ? flagged : projects).slice(0, 3);
 
-    return (
-        <>
-            <section className="hero">
-                <h1>Quality Carpentry Built to Last</h1>
-                <p>Custom timber work for homes and businesses.</p>
-                <Link className="btn" to="/#contact">Get a Free Quote</Link>
-            </section>
+  return (
+    <>
+      <Hero />
 
-            <section id="services" className="section">
-                <h2>Services</h2>
-                <div className="grid">
-                    {services.map((s) => (
-                        <div className="card" key={s.title}>
-                            <h3>{s.title}</h3>
-                            <p>{s.text}</p>
-                        </div>
-                    ))}
+      <section id="services" className="section wide">
+        <div className="split">
+          <div>
+            <h2 className="split-title">Services</h2>
+            <div className="service-list">
+              {services.map((s, i) => (
+                <div className="card service" key={s.title}>
+                  <span className="service-num">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3>{s.title}</h3>
+                    <p>{s.text}</p>
+                  </div>
                 </div>
-            </section>
+              ))}
+            </div>
+          </div>
 
-            <section id="work" className="section alt">
-                <h2>Featured Work</h2>
-                {featured.length === 0 ? (
-                    <p className="empty">Projects coming soon.</p>
-                ) : (
-                    <div className="grid gallery">
-                        {featured.map((p) => <ProjectCard key={p.id} project={p} />)}
-                    </div>
-                )}
-                <div className="center">
-                    <Link className="btn" to="/projects">View all {projects.length} projects</Link>
-                </div>
-            </section>
+          <div>
+            <h2 className="split-title">Featured Work</h2>
+            {featured.length === 0 ? (
+              <p className="empty">Projects coming soon.</p>
+            ) : (
+              <div className="featured-list">
+                {featured.map((p) => <ProjectCard key={p.id} project={p} compact />)}
+              </div>
+            )}
+            <div className="split-cta">
+              <Link className="btn" to="/projects">View all {projects.length} projects</Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <ContactForm />
-        </>
-    );
+      <ContactForm />
+    </>
+  );
 }
