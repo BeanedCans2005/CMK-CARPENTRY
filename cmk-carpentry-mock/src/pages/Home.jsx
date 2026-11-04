@@ -44,10 +44,11 @@ export default function Home() {
                 {featured.map((p) => <ProjectCard key={p.id} project={p} compact />)}
               </div>
             )}
-            <div className="split-cta">
-              <Link className="btn" to="/projects">View all {projects.length} projects</Link>
-            </div>
           </div>
+        </div>
+
+        <div className="split-cta">
+          <Link className="btn" to="/projects">View all {projects.length} projects</Link>
         </div>
       </section>
 

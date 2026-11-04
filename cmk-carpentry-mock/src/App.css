@@ -231,7 +231,7 @@ button { font-family: inherit; }
 
 /* Services + Featured Work, side by side */
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 3rem; align-items: start; }
-.section h2.split-title { text-align: left; margin-bottom: 1.5rem; }
+.section h2.split-title { text-align: center; margin-bottom: 1.5rem; }
 .service-list, .featured-list { display: flex; flex-direction: column; gap: 1rem; }
 .card.service { display: flex; gap: 1rem; align-items: flex-start; background: #fff; }
 .service-num { font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; line-height: 1.2; color: var(--green); }
@@ -253,3 +253,58 @@ button { font-family: inherit; }
 .socials a, .placeholder-link { display: inline-flex; align-items: center; gap: 0.4rem; }
 .socials svg { display: block; }
 .nav nav .socials { vertical-align: middle; }
+
+/* Equal-height columns: photos no longer dictate card height */
+.split { align-items: stretch; }
+.split > div { display: flex; flex-direction: column; }
+.service-list, .featured-list { flex: 1; }
+.card.service { flex: 1; align-items: center; }
+
+.project.compact {
+  position: relative;
+  flex: 1;
+  flex-direction: row;
+  min-height: 9.5rem;
+}
+.project.compact img,
+.project.compact .photo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 38%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+.project.compact .project-body { flex: 1; margin-left: 38%; justify-content: center; }
+
+/* Phones: stack the image above the text again */
+@media (max-width: 480px) {
+  .project.compact { flex-direction: column; min-height: 0; }
+  .project.compact img,
+  .project.compact .photo {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .project.compact .project-body { margin-left: 0; }
+}
+
+/* Button now sits centred below both columns */
+.split-cta { margin-top: 2rem; text-align: center; }
+
+/* The "Photo coming soon" tile lost its centring to an earlier rule */
+.project .photo { display: flex; text-align: center; padding: 0.5rem; }
+
+.section h2.split-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin: 0.6rem auto 0;
+  background: var(--accent);
+  border-radius: 2px;
+}
