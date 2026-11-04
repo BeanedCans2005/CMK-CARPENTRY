@@ -308,3 +308,40 @@ button { font-family: inherit; }
   background: var(--accent);
   border-radius: 2px;
 }
+
+/* Hero photo background with green fade */
+.hero-split { position: relative; overflow: hidden; isolation: isolate; }
+.hero-slides, .hero-overlay { position: absolute; inset: 0; }
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+/* Solid green behind the text, fading out to the right so the photo shows */
+.hero-overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(19, 41, 31, 0.95) 30%,
+    rgba(19, 41, 31, 0.65) 60%,
+    rgba(35, 80, 56, 0.35) 100%
+  );
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+/* On phones the text spans the full width, so keep the overlay even */
+@media (max-width: 700px) {
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(19, 41, 31, 0.88), rgba(19, 41, 31, 0.72));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { transition: none; }
+}
