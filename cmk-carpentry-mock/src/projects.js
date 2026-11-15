@@ -201,6 +201,10 @@ export const projects = [
     clientName: "",
     photo: `${SHELF}/cover.jpg`,
     gallery: gallery(SHELF, 2),
+     beforeAfter: {
+      before: `${SHELF}/gallery-02.jpg`,
+      after: `${SHELF}/after.jpg`,
+    },
   },
 
   // ---------- PLACEHOLDERS (delete one per real project you add) ----------
