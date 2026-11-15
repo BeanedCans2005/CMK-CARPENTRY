@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects, getParagraphs, getBuild, getImages, getGallery } from "../projects";
 import BeforeAfter from "../components/BeforeAfter";
-import Lightbox from "../components/Lightbox";
+import Lightbox from "../components/LightBox";
 import SocialLinks from "../components/SocialLinks";
 
 export default function ProjectDetail() {
