@@ -5,6 +5,8 @@ import { projects } from "../projects";
 import Hero from "../components/Hero";
 import ProjectCard from "../components/ProjectCard";
 import ContactForm from "../components/ContactForm";
+import Reviews from "../components/Reviews";
+import ServiceAreas from "../components/ServiceAreas";
 
 export default function Home() {
   useEffect(() => {
@@ -51,7 +53,8 @@ export default function Home() {
           <Link className="btn" to="/projects">View all {projects.length} projects</Link>
         </div>
       </section>
-
+      <Reviews />
+      <ServiceAreas />
       <ContactForm />
     </>
   );
