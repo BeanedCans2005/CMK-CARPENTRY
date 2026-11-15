@@ -10,6 +10,11 @@ export const reviews = [
   {
     name: "Michelle",
     text: "I had an idea of what I wanted, but Cooper helped me work through the design and made some great suggestions that really improved the final result",
-    project: "New Deck"
+    project: ""
   },
+  {
+    name: "Blake",
+    text: "His experience and attention to detail really showed, particularly with the finishing work where getting everything to line up and look right made a huge difference",
+    project: ""
+  }
 ];
