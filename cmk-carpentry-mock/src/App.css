@@ -440,21 +440,19 @@ button { font-family: inherit; }
 .footer-phone { display: inline-flex; align-items: center; gap: 0.4rem; }
 .footer-bottom { max-width: var(--content); margin: 2.5rem auto 0; padding-top: 1.25rem; border-top: 1px solid rgba(243, 238, 229, 0.15); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-size: 0.85rem; color: rgba(243, 238, 229, 0.7); }
 
-/* Before / after reveal */
-.ba { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; background: var(--dark); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; }
-.ba:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.ba-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; }
-.ba-ph { display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem; font-weight: 600; color: #fff; }
-.ba-ph.before { background: #6b6558; }
-.ba-ph.after { background: var(--green); }
-.ba-tear { position: absolute; inset: 0; filter: drop-shadow(3px 0 5px rgba(0, 0, 0, 0.4)); pointer-events: none; }
-.ba-paper { position: absolute; inset: 0; background: #f4efe6; }
-.ba-grip { position: absolute; top: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: var(--accent); color: var(--on-accent); display: flex; align-items: center; justify-content: center; font-weight: 700; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); pointer-events: none; }
-.ba-chip { position: absolute; top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(20, 26, 23, 0.75); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; pointer-events: none; transition: opacity 0.2s; }
-.ba-chip.before { left: 0.75rem; }
-.ba-chip.after { right: 0.75rem; }
-.ba-hint { position: absolute; bottom: 0.75rem; left: 50%; transform: translateX(-50%); padding: 0.35rem 0.8rem; border-radius: 999px; background: rgba(20, 26, 23, 0.8); color: #fff; font-size: 0.85rem; white-space: nowrap; pointer-events: none; }
-
+//* Before / After */
+.ba { position: relative; overflow: hidden; border-radius: 8px; touch-action: pan-y; user-select: none; cursor: ew-resize; aspect-ratio: 4 / 3; background: #000; }
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-line { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; transform: translateX(-1px); box-shadow: 0 0 6px rgba(0,0,0,0.4); }
+.ba-handle {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 2px solid #fff;
+  background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; cursor: ew-resize;
+}
+.ba-handle:focus-visible { outline: 3px solid var(--accent, #fff); outline-offset: 2px; }
+.ba-tag { position: absolute; top: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(0,0,0,0.6); color: #fff; font-size: 0.8rem; pointer-events: none; }
+.ba-tag-before { left: 0.75rem; }
+.ba-tag-after { right: 0.75rem; }
 /* Project page */
 .project-cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin: 1.5rem 0 2rem; display: block; }
 .project-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
