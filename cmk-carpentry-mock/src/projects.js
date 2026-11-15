@@ -75,7 +75,7 @@ export const projects = [
     ],
     beforeAfter: {
       before: `${DECK}/Project-Deck-Before.jpg`,
-      after: `${DECK}/Project-Deck-After.jpg`,
+      after: `${DECK}/Project-Deck-Gallery-03.jpg`,
     },
   },
 
