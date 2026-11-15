@@ -16,5 +16,10 @@ export const reviews = [
     name: "Blake",
     text: "His experience and attention to detail really showed, particularly with the finishing work where getting everything to line up and look right made a huge difference",
     project: ""
-  }
+  },
+  {
+    name: "Anne & Lloyd",
+    text: "From start to finish, Cooper was professional, reliable and easy to communicate with. The workmanship was excellent, and everything was left clean and tidy.",
+    project: ""
+  },
 ];
