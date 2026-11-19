@@ -61,7 +61,7 @@ export default function Footer() {
           © {new Date().getFullYear()} C.M.K Carpentry Services
           {legal.length > 0 && ` · ${legal.join(" · ")}`}
         </p>
-        {SHOW_DRAFT_NOTE && <p>Mock design for review</p>}
+        {SHOW_DRAFT_NOTE && <p></p>}
       </div>
     </footer>
   );
